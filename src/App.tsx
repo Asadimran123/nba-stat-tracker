@@ -1,13 +1,12 @@
 import './App.css'
-
-function App() {
+import Navbar from './components/Navbar'
+export default function App() {
 
   return (
-    <div>
-      <h1>coming soon!</h1>
-      <h2>im working hard on getting this out ASAP!</h2>
-    </div>
+    <main>
+      <Navbar/>
+    </main>
   )
 }
 
-export default App
+ 
