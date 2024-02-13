@@ -3,7 +3,7 @@
   align-items: center; /* Align items vertically in the center */
   background-color: red; /* Set the background color to red */
   padding: 10px; /* Add some padding for spacing */
-  height: 75px;
+  height: fit-content;
 }
 
 
@@ -12,6 +12,7 @@
   font-size: 60px;
   justify-self: center;
   align-self: center;
+  margin-left: 10px;
 }
 
 #nba-logo{
@@ -31,6 +32,42 @@
 #contact:hover{
   background-color: lightblue;
 }
- #contact:active{
+
+#contact:active{
   background-color: yellow;
- }
+}
+
+
+#container{
+  position: relative;
+  margin-top: 75px;
+  margin-right: 20px;
+  margin-left: 20px;
+  border: white 2px solid;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Automatically fill the grid with a minimum width of 250px and adjust the number of columns based on available space */
+  gap: 20px; /* Add gap between cards */
+  padding: 20px; /* Add padding around the grid */
+  justify-self: center;
+  align-self: center;
+  background-color: #383536;
+  height: fit-content;
+}
+
+#menu-select{
+  position: relative;
+  margin-left: 45%;
+  margin-top: 40px;
+  height: 50px;
+}
+
+.card{
+  height: 300px;
+  width: 200px;
+  background-color: #565759;
+  color: black;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  border: black 1.5px solid;
+}
