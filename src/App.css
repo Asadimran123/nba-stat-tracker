@@ -4,6 +4,8 @@
   background-color: red; /* Set the background color to red */
   padding: 10px; /* Add some padding for spacing */
   height: fit-content;
+  border-radius: 5px;
+  height: 100px;
 }
 
 
@@ -52,6 +54,7 @@
   align-self: center;
   background-color: #383536;
   height: fit-content;
+  border-radius: 5px;
 }
 
 #menu-select{
@@ -63,7 +66,7 @@
 
 .card{
   height: 300px;
-  width: 200px;
+  width: 225px;
   background-color: #565759;
   color: black;
   display: flex;
@@ -76,14 +79,21 @@
 
 
 .card-logo{
-  height: 150px;
+  height: 140px;
   align-self: center;
-  margin-bottom: 65px;
+  width: 90%;
+  margin-bottom: 40px;
 }
 
-.card-header{
-  align-self: center;
-  margin-bottom: 50px;
+.team-stats-div{
+  display: flex;
+  flex-direction: column;
 }
 
+.team-stats-info{
+  margin: 5px;
+  align-self: center;
+  color: aliceblue;
+  font-size: 20px;
+}
 

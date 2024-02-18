@@ -5,7 +5,7 @@ export default function Navbar(){
         <nav id="nav">
             <img id="nba-logo" src="src/assets/logo.png" alt="nba-logo" />
             <h2 id="nav-header">NBA stat tracker</h2>
-            <button id="contact">contact</button>
+            <button id="contact">contact & updates</button>
         </nav>
     )
 }
