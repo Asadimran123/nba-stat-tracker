@@ -42,7 +42,7 @@
 
 #container{
   position: relative;
-  margin-top: 75px;
+  margin-top: 50px;
   margin-right: 20px;
   margin-left: 20px;
   border: white 2px solid;
@@ -82,7 +82,7 @@
   height: 140px;
   align-self: center;
   width: 90%;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .team-stats-div{
@@ -94,6 +94,12 @@
   margin: 5px;
   align-self: center;
   color: aliceblue;
-  font-size: 20px;
+  font-size: 17.5px;
+}
+
+#season-select{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
 }
 

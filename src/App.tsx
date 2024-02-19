@@ -18,11 +18,19 @@ export default function App() {
   // }
 
   const [teams, setTeams] = useState([])
+  const [season, setSeason] = useState(2023)
+  const [seasonList, setSeasonList] = useState(()=> {
+    const seasons = []
+    for(let i = new Date().getFullYear() - 1; i >1970; i--){
+      seasons.push(i)
+    }
+    return seasons
+  })
   const [isTeams, setIsTeams] = useState(true) //state to check if teams is selected
 
   /** effect to get nbaFranchises and set state only once at start of app.  */
   useEffect(()=>{
-      fetch('https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=2021', {
+      fetch(`https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=${season}`, {
         "method": "GET",
         "headers": {
           'X-RapidAPI-Key': '42e01d8832msh4b5ae8aaade5ca2p1f6826jsnccb497854d8a',
@@ -32,30 +40,45 @@ export default function App() {
       .then(res => res.json())
       .then(data => setTeams(data.response))
       .catch(err => console.log(err));
-  }, [])
+  }, [season])
 
   console.log(teams)
-
+  
+  /** creates team cards */
   const teamCards = teams.map((team: any) =>[
     <Card key={team.team.id} 
     name={team.team.name} 
     image={team.team.logo}
     wins={team.win.total}
-    loses={team.loss.toal}
+    loses={team.loss.total}
     rank={team.conference.rank}
+    games_behind={team.gamesBehind}
+    conference={team.conference.name}
     />
   ])
 
+  const toggleSeason = (event : any)=>{
+    console.log('toggling season')
+    setSeason(parseInt(event.target.value))
+  }
+
+  const seasonListOptions = seasonList.map((season: number)=>{
+    return <option value={season} key={season}>
+      {season} - {season + 1}
+      </option>
+  })
+
   return (
       <main>
-          {/* Include Navbar and other elements */}
           <Navbar/>
-          <select id="menu-select">
-              <option value="Teams">Teams</option>
-              <option value="Players">Players</option>
-              <option value="My Teams">My Teams</option>
-              <option value="My Players">My Players</option>
-          </select>
+          
+          <div id="season-select">
+            <label htmlFor="menu-select-season">select season:</label>
+            <select id="menu-select-season" onChange={toggleSeason}>
+                {seasonListOptions}
+            </select>
+          </div>
+
           <div id="container">
               {isTeams && teamCards}
           </div>
