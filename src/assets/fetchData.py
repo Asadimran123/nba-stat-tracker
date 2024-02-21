@@ -10,7 +10,7 @@ headers = {
 	"X-RapidAPI-Host": "api-nba-v1.p.rapidapi.com"
 }
 
-querystring = {"league":"standard","season":"2000"}
+querystring = {"league":"standard","season":"2018"}
 
 
 response = requests.get(url_stats, headers=headers, params=querystring)

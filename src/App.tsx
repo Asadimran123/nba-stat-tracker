@@ -21,7 +21,7 @@ export default function App() {
   const [season, setSeason] = useState(2023)
   const [seasonList, setSeasonList] = useState(()=> {
     const seasons = []
-    for(let i = new Date().getFullYear() - 1; i >1970; i--){
+    for(let i = new Date().getFullYear() - 1; i >2017; i--){
       seasons.push(i)
     }
     return seasons
@@ -52,16 +52,17 @@ export default function App() {
     wins={team.win.total}
     loses={team.loss.total}
     rank={team.conference.rank}
-    games_behind={team.gamesBehind}
     conference={team.conference.name}
     />
   ])
 
+  /** helper function to toggle season */
   const toggleSeason = (event : any)=>{
     console.log('toggling season')
     setSeason(parseInt(event.target.value))
   }
 
+  /** creates list options for seasons */
   const seasonListOptions = seasonList.map((season: number)=>{
     return <option value={season} key={season}>
       {season} - {season + 1}
@@ -71,9 +72,8 @@ export default function App() {
   return (
       <main>
           <Navbar/>
-          
           <div id="season-select">
-            <label htmlFor="menu-select-season">select season:</label>
+
             <select id="menu-select-season" onChange={toggleSeason}>
                 {seasonListOptions}
             </select>
