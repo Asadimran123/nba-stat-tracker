@@ -1,23 +1,14 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import Card from './components/Card'
+import Team from './components/Team'
 import React, { useEffect, useState } from 'react';
 
 export default function App() {
 
-  // interface Team {
-  //   allStar: boolean
-  //   city: string
-  //   code: string
-  //   id: number
-  //   leagues: object
-  //   logo: string
-  //   name: string
-  //   nbaFranchise: boolean
-  //   nickname: string
-  // }
 
-  const [teams, setTeams] = useState([])
+  const [teams, setTeams] = useState<Team[]>([])
+  const [favoriteTeams, setFavoriteTeams] = useState<Team[]>([])
   const [season, setSeason] = useState(2023)
   const [seasonList, setSeasonList] = useState(()=> {
     const seasons = []
@@ -38,12 +29,37 @@ export default function App() {
         }
       })
       .then(res => res.json())
-      .then(data => setTeams(data.response))
+      .then(data => setTeams(()=>{
+        return(
+        data.response.map((team: any)=>{
+          return{
+            ...team, 
+            isFavorite: false
+          }
+        })
+      )}))
       .catch(err => console.log(err));
   }, [season])
 
-  console.log(teams)
-  
+  const toggleFav = (team:Team) =>{
+    setFavoriteTeams(prevState => {
+      const updatedTeam = team
+      if(!updatedTeam.isFavorite){
+        console.log('adding fav: ', team.team.name)
+        updatedTeam.isFavorite = true
+        return [updatedTeam, ...prevState]
+      }
+      else{
+        console.log('removing fav: ', team.team.name)
+        updatedTeam.isFavorite = false
+        return prevState.filter(stillFavorite => stillFavorite !== team)
+      }
+
+    })
+  }
+
+  console.log(favoriteTeams)
+
   /** creates team cards */
   const teamCards = teams.map((team: any) =>[
     <Card key={team.team.id} 
@@ -53,6 +69,8 @@ export default function App() {
     loses={team.loss.total}
     rank={team.conference.rank}
     conference={team.conference.name}
+    isFavorite={team.isFavorite}
+    addFavorite={()=>toggleFav(team)}
     />
   ])
 
