@@ -9,10 +9,11 @@ type CardProps = {
     conference: string
     isFavorite: boolean
     addFavorite: ()=> void
+    season: string
 }
 
 const heart_style = {
-    fontSize: '35px'
+    fontSize: '40px'
 }
 
 export default function Card(props: CardProps){
@@ -24,6 +25,7 @@ export default function Card(props: CardProps){
                 <h4 className="team-stats-info">wins: {props.wins}</h4>
                 <h4 className="team-stats-info">loses: {props.loses}</h4>
                 <h4 className="team-stats-info">rank: {props.rank}</h4>
+                <h4 className="team-stats-info">{props.season}</h4>
                 <button className="favorite-btn">
                     {props.isFavorite 
                     ? <span className="favorite-btn-icon" onClick={props.addFavorite} style={heart_style}>&#9829;</span>

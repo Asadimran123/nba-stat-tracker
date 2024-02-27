@@ -1,8 +1,8 @@
 export default interface Team {
     league: string,
         season: number,
+        id: string
         team: {
-            id: number,
             name: string,
             nickname: string,
             code: string,
