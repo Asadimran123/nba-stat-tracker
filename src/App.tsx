@@ -8,6 +8,8 @@ import { nanoid } from 'nanoid';
 export default function App() {
 
   const [teams, setTeams] = useState<Team[]>([])
+  const [isEast, setIsEast] = useState(true)
+  const [isWest, setIsWest] = useState(false)
   const [favoriteTeams, setFavoriteTeams] = useState<Team[]>(()=>{
       const data = localStorage.getItem('favTeams')
       return data ? JSON.parse(data) : [] 
@@ -54,7 +56,6 @@ export default function App() {
     .catch(err => window.alert("Could not load data. Refresh and try again"));
   }, [season]);
 
-  console.log(teams)
 
   /** effect to manage local storage */
   useEffect(()=>{
@@ -71,17 +72,41 @@ export default function App() {
       else{
         console.log('removing fav: ', team.team.name)
         team.isFavorite = false
-        return prevState.filter(stillFavorite => stillFavorite !== team)
+        return prevState.filter((team) => team.isFavorite === true)
       }
     })
   }
-
 
   /** helper function to toggle season */
   const toggleSeason = (event : any)=>{
     console.log('toggling season')
     setSeason(parseInt(event.target.value))
   }
+
+  const toggleConference = (event : any) =>{
+    console.log(`toggling conference ${event.target.value}`)
+    if(event.target.value === 'east'){
+      if(isEast){
+        return
+      }
+      else{
+        setIsEast(true)
+        setIsWest(false)
+      }
+    }
+    else if(event.target.value === 'west'){
+      if(isWest){
+        return
+      }
+      else{
+        setIsWest(true)
+        setIsEast(false)
+      }
+    }
+  }
+
+  console.log(teams)
+
   const setPageToFavTeams = () =>{
     setIsMyTeams(true)
     setIsTeams(false)
@@ -102,11 +127,10 @@ export default function App() {
     setFavoriteTeams([])
   }
 
-  console.log(favoriteTeams)
 
 
   /** creates team cards */
-  const teamCards = teams.map((team: any) =>[
+  const teamCards = teams.map((team: any) =>(
     <Card key={team.id} 
     name={team.team.name} 
     image={team.team.logo}
@@ -118,9 +142,17 @@ export default function App() {
     addFavorite={()=>toggleFav(team)}
     season={`${team.season} - ${team.season + 1}`}
     />
-  ])
+  ))
 
-  const favTeamCards = teamCards.filter(card => card[0].props.isFavorite === true)
+  const eastCards = teamCards.filter(card => card.props.conference === 'east')
+  const westCards = teamCards.filter(card => card.props.conference === 'west')
+
+  const sortedEastCards = eastCards.sort((a, b)=> a.props.rank - b.props.rank)
+  const sortedWestCards = westCards.sort((a, b)=> a.props.rank - b.props.rank)
+
+  console.log(sortedEastCards)
+
+  const favTeamCards = teamCards.filter(card => card.props.isFavorite === true)
   
   /** creates list options for seasons */
   const seasonListOptions = seasonList.map((season: number)=>{
@@ -128,6 +160,9 @@ export default function App() {
       {season} - {season + 1}
       </option>
   })
+
+  console.log(`is east: ${isEast}`)
+  console.log(`is west: ${isWest}`)
   
 
   return (
@@ -143,8 +178,13 @@ export default function App() {
             </select>
           </div>
           <button onClick={clearFavTeams}>clear fav teams</button>
+          <div className='conference-btns-div'>
+              <button onClick={toggleConference} value='east' className='confernece-btns'>East </button>
+              <button onClick={toggleConference} value='west' className='confernece-btns'>West </button>
+          </div>
           <div id="container">
-              {isTeams && teamCards}
+              {isTeams && isEast && sortedEastCards}
+              {isTeams && isWest && sortedWestCards}
               {isMyTeams && favTeamCards}
           </div>
       </main>
