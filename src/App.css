@@ -147,14 +147,13 @@
   margin-top: 25px;
 }
 
-label{
-  color: black;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.conference-btns-div{
+  display: flex;
+  margin-left: 40px;
 }
 
-#NFT-msg{
-  color: black;
-  position: absolute;
-  left: 42%;
-  font-family: 'Courier New', Courier, monospace;
-}
+
+
+
+
+

@@ -26,10 +26,10 @@ export default function Card(props: CardProps){
                 <h4 className="team-stats-info">loses: {props.loses}</h4>
                 <h4 className="team-stats-info">rank: {props.rank}</h4>
                 <h4 className="team-stats-info">{props.season}</h4>
-                <button className="favorite-btn">
+                <button className="favorite-btn" onClick={props.addFavorite}>
                     {props.isFavorite 
-                    ? <span className="favorite-btn-icon" onClick={props.addFavorite} style={heart_style}>&#9829;</span>
-                    : <span className="favorite-btn-icon" onClick={props.addFavorite}>&#9825;</span>
+                    ? <span className="favorite-btn-icon" style={heart_style}>&#9829;</span>
+                    : <span className="favorite-btn-icon">&#9825;</span>
                 }
                     </button>
             </div>

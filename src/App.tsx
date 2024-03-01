@@ -7,10 +7,10 @@ import { nanoid } from 'nanoid';
 
 export default function App() {
 
-  const [teams, setTeams] = useState<Team[]>([])
+  const [teams, setTeams] = useState<any[]>([])
   const [isEast, setIsEast] = useState(true)
   const [isWest, setIsWest] = useState(false)
-  const [favoriteTeams, setFavoriteTeams] = useState<Team[]>(()=>{
+  const [favoriteTeams, setFavoriteTeams] = useState<any[]>(()=>{
       const data = localStorage.getItem('favTeams')
       return data ? JSON.parse(data) : [] 
     }
@@ -61,21 +61,33 @@ export default function App() {
   useEffect(()=>{
     localStorage.setItem('favTeams', JSON.stringify(favoriteTeams))
   }, [favoriteTeams])
+  
+  // Update the teams state whenever favoriteTeams changes
+  useEffect(() => {
+    const updatedTeams = teams.map(team => {
+      return {
+        ...team,
+        isFavorite: favoriteTeams.some(favTeam => favTeam.id === team.id)
+      };
+    });
+    setTeams(updatedTeams);
+  }, [favoriteTeams]);
 
-  const toggleFav = (team:any) =>{
+  const toggleFav = (team: any) => {
     setFavoriteTeams(prevState => {
-      if(!team.isFavorite){
-        console.log('adding fav: ', team.team.name)
-        team.isFavorite = true
-        return [team, ...prevState]
+      const index = prevState.findIndex(t => t.id === team.id);
+      if (index !== -1) {
+        // If the team is already in favoriteTeams, remove it from the array
+        const updatedTeams = [...prevState];
+        updatedTeams.splice(index, 1);
+        return updatedTeams;
+      } else {
+        // If the team is not in favoriteTeams, add it to the array
+        return [{ ...team, isFavorite: true }, ...prevState];
       }
-      else{
-        console.log('removing fav: ', team.team.name)
-        team.isFavorite = false
-        return prevState.filter((team) => team.isFavorite === true)
-      }
-    })
-  }
+    });
+  };
+  
 
   /** helper function to toggle season */
   const toggleSeason = (event : any)=>{
@@ -105,7 +117,6 @@ export default function App() {
     }
   }
 
-  console.log(teams)
 
   const setPageToFavTeams = () =>{
     setIsMyTeams(true)
@@ -127,11 +138,10 @@ export default function App() {
     setFavoriteTeams([])
   }
 
-
-
   /** creates team cards */
   const teamCards = teams.map((team: any) =>(
-    <Card key={team.id} 
+    <Card 
+    key={team.id} 
     name={team.team.name} 
     image={team.team.logo}
     wins={team.win.total}
@@ -150,8 +160,6 @@ export default function App() {
   const sortedEastCards = eastCards.sort((a, b)=> a.props.rank - b.props.rank)
   const sortedWestCards = westCards.sort((a, b)=> a.props.rank - b.props.rank)
 
-  console.log(sortedEastCards)
-
   const favTeamCards = teamCards.filter(card => card.props.isFavorite === true)
   
   /** creates list options for seasons */
@@ -161,9 +169,8 @@ export default function App() {
       </option>
   })
 
-  console.log(`is east: ${isEast}`)
-  console.log(`is west: ${isWest}`)
-  
+  console.log(teams)
+  console.log(favoriteTeams)
 
   return (
       <main>
@@ -172,15 +179,15 @@ export default function App() {
           myTeams={setPageToFavTeams}
           />
           <div id="season-select">
-
             <select id="menu-select-season" onChange={toggleSeason}>
                 {seasonListOptions}
             </select>
           </div>
-          <button onClick={clearFavTeams}>clear fav teams</button>
+         <button onClick={clearFavTeams}>clear fav teams</button>
+
           <div className='conference-btns-div'>
-              <button onClick={toggleConference} value='east' className='confernece-btns'>East </button>
-              <button onClick={toggleConference} value='west' className='confernece-btns'>West </button>
+              {isTeams && <button onClick={toggleConference} value='east' className='conference-btns'>East </button>}
+              {isTeams && <button onClick={toggleConference} value='west' className='conference-btns'>West </button>}
           </div>
           <div id="container">
               {isTeams && isEast && sortedEastCards}
