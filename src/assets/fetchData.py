@@ -3,6 +3,7 @@ import json
 
 url_stats = "https://api-nba-v1.p.rapidapi.com/standings"
 url_teams = "https://api-nba-v1.p.rapidapi.com/teams"
+url_players = "https://api-nba-v1.p.rapidapi.com/players/statistics"
 
 
 headers = {
@@ -10,16 +11,30 @@ headers = {
 	"X-RapidAPI-Host": "api-nba-v1.p.rapidapi.com"
 }
 
-querystring = {"league":"standard","season":"2018"}
+querystring_team = {"league":"standard","season":"2018"}
+querystring_players = {"id":"265","season":"2021"}
 
 
-response = requests.get(url_stats, headers=headers, params=querystring)
+# response = requests.get(url_stats, headers=headers, params=querystring)
+response = requests.get(url_players, headers=headers, params=querystring_players)
+
 
 data = response.json()
 
-print(len(data['response']))
+total_points = 0
+for game in data['response']: 
+    if game.get("points") != None:
+        total_points+= int(game.get("points"))
+    else: 
+        print('count not tally')
+    
+print('total points: ', total_points)
 
-with open("data.js", 'w') as f: 
+print('games played: ', len(data['response']))
+
+print('ppg: ', (total_points/len(data['response'])))
+
+with open("player-data.js", 'w') as f: 
     json.dump(data['response'], f, indent=4)
 
 
