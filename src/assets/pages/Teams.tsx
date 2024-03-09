@@ -37,6 +37,7 @@ const sortedWestCards = westCards.sort((a: JSX.Element, b: JSX.Element)=> a.prop
         
 return(
     <main>
+        <h1 className="my-teams-header">Teams</h1>
         <div id="select">
             {<button onClick={props.toggleConference} value='west' className='select-btns'>West </button>}
             <select id="menu-select-season" className='select-btns' onChange={props.toggleSeason} value={props.season}>

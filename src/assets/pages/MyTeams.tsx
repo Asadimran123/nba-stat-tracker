@@ -1,5 +1,4 @@
 import React from "react";
-import TeamsPage from "./Teams";
 import Card from "../../components/Card";
 
 type TeamProps = {
@@ -28,7 +27,7 @@ export default function MyTeamsPage(props: TeamProps){
 
     return(
         <main className="my-teams-page">
-            <h1 id="my-teams-header">My Teams</h1>
+            <h1 className="my-teams-header">My Teams</h1>
             <div id="container">
                 {favTeamCards}
              </div>

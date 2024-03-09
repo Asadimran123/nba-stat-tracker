@@ -5,6 +5,7 @@ import  {Route, Routes} from "react-router-dom"
 import Home from './assets/pages/Home';
 import TeamsPage from './assets/pages/Teams';
 import MyTeamsPage from './assets/pages/MyTeams';
+import AboutPage from './assets/pages/About';
 
 export default function App() {
   const [teams, setTeams] = useState<any[]>([])
@@ -141,6 +142,7 @@ export default function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/Teams" element={<TeamsPage {...teamProps}/>}/>
       <Route path="/MyTeams" element={<MyTeamsPage {...favTeamProps}/>}/>
+      <Route path="/About" element={<AboutPage/>}/>
     </Routes>
     </main>
   )

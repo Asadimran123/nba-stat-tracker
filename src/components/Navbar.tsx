@@ -8,7 +8,8 @@ export default function Navbar(){
             <h2 id="nav-header">NBA stat tracker</h2>
             <Link to="/" className="nav-btn" >Home</Link>
             <Link to="/Teams" className="nav-btn" >Teams</Link>
-            <Link to="/MyTeams" className="nav-btn" >MyTeams</Link>
+            <Link to="/MyTeams" className="nav-btn" >My Teams</Link>
+            <Link to="/About" className="nav-btn" >About/Contact</Link>
         </nav>
     )
 }
