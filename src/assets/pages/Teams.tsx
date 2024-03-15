@@ -9,7 +9,8 @@ type TeamProps = {
     isWest: boolean,
     season: number,
     toggleFav: (team: any) => void, // Assuming toggleFav handles toggling favorite teams
-    toggleSeason: (event: any) => void // Assuming toggleSeason handles select change events
+    toggleSeason: (event: any) => void, // Assuming toggleSeason handles select change events
+    loading: boolean
 }; 
 export default function TeamsPage(props: TeamProps){
 
@@ -34,6 +35,11 @@ const westCards = teamCards.filter((card: JSX.Element) => card.props.conference 
 
 const sortedEastCards = eastCards.sort((a: JSX.Element, b: JSX.Element)=> a.props.rank - b.props.rank)
 const sortedWestCards = westCards.sort((a: JSX.Element, b: JSX.Element)=> a.props.rank - b.props.rank)
+
+const container_styles = {
+    display: props.loading ? 'flex' : 'grid', 
+    justifyContent: props.loading ? 'center' : ''
+}
         
 return(
     <main>
@@ -45,11 +51,17 @@ return(
             </select>
             {<button onClick={props.toggleConference} value='east' className='select-btns'>East </button>}
         </div>
-  
-        <div id="container">
-            {props.isEast && sortedEastCards}
-            {props.isWest && sortedWestCards}
+        <div id="container" style={container_styles}>
+            {props.loading ? (
+                <h2 className='loading-p'>Loading...</h2>
+            ) : (
+                <React.Fragment>
+                {props.isEast && sortedEastCards}
+                {props.isWest && sortedWestCards}
+                </React.Fragment>
+            )}
         </div>
+
     </main>
 )
 

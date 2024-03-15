@@ -2,7 +2,13 @@
   color: black;
 }
 
+.loading-p{
+  color: black;
 
+}
+a{
+  color: blue;
+}
 
 .my-teams-header{
   display: flex;
@@ -114,8 +120,6 @@
 
 
 #container{
-  position: relative;
-  margin-left: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Automatically fill the grid with a minimum width of 250px and adjust the number of columns based on available space */
   gap: 20px; 
@@ -126,7 +130,7 @@
   height: fit-content;
   border-radius: 5px;
   animation: fadeIn 2s ease forwards;
-
+  place-items: center;
 }
 
 #menu-select{
@@ -198,7 +202,7 @@
 #select{
   display: flex;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 5px;
 }
 
 .select-btns{
@@ -207,3 +211,61 @@
 
 }
 
+
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 2s ease forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formcarry-block {
+  margin-bottom: 20px;
+}
+
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: black;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 450px;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  color: black;
+}
+
+textarea {
+  height: 150px;
+}
+
+button[type="submit"] {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}

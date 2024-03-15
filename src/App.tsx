@@ -6,6 +6,7 @@ import Home from './assets/pages/Home';
 import TeamsPage from './assets/pages/Teams';
 import MyTeamsPage from './assets/pages/MyTeams';
 import AboutPage from './assets/pages/About';
+import Contact from './assets/pages/Contact';
 
 export default function App() {
   const [teams, setTeams] = useState<any[]>([])
@@ -14,13 +15,9 @@ export default function App() {
       return data ? JSON.parse(data) : [] 
       }
   )
-
   const [season, setSeason] = useState(2023)
-
-  console.log(season)
   const [isEast, setIsEast] = useState(true)
   const [isWest, setIsWest] = useState(false)
-
   const seasonList = ()=> {
     const seasons = []
     for(let i = new Date().getFullYear() - 1; i > 2017; i--){
@@ -28,6 +25,9 @@ export default function App() {
     }
     return seasons
     }
+
+    const [loading, setLoading] = useState(true);
+  
   /** effect to get nbaFranchises and set state only once at start of app.  */
   useEffect(() => {
     fetch(`https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=${season}`, {
@@ -49,6 +49,7 @@ export default function App() {
         };
         });
         setTeams(updatedTeams);
+        setLoading(false)
   })
     .catch(err => window.alert("Could not load data. Refresh and try again"));
   }, [season]);
@@ -86,6 +87,7 @@ export default function App() {
   const toggleSeason = (event : any)=>{
       console.log('toggling season')
       setSeason(parseInt(event.target.value))
+      setLoading(true);
     }
 
   const toggleConference = (event : any) =>{
@@ -125,7 +127,8 @@ export default function App() {
     isWest : isWest,
     toggleFav: toggleFav,
     toggleSeason : toggleSeason, 
-    season: season
+    season: season,
+    loading: loading
   }
 
   const favTeamProps = {
@@ -143,6 +146,7 @@ export default function App() {
       <Route path="/Teams" element={<TeamsPage {...teamProps}/>}/>
       <Route path="/MyTeams" element={<MyTeamsPage {...favTeamProps}/>}/>
       <Route path="/About" element={<AboutPage/>}/>
+      <Route path="/Contact" element={<Contact/>}/>
     </Routes>
     </main>
   )
