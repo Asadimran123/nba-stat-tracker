@@ -7,6 +7,7 @@ import TeamsPage from './assets/pages/Teams';
 import MyTeamsPage from './assets/pages/MyTeams';
 import AboutPage from './assets/pages/About';
 import Contact from './assets/pages/Contact';
+import axios from 'axios';
 
 export default function App() {
   const [teams, setTeams] = useState<any[]>([])
@@ -30,16 +31,18 @@ export default function App() {
   
   /** effect to get nbaFranchises and set state only once at start of app.  */
   useEffect(() => {
-    fetch(`https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=${season}`, {
-        "method": "GET",
-        "headers": {
-        'X-RapidAPI-Key': '42e01d8832msh4b5ae8aaade5ca2p1f6826jsnccb497854d8a',
-        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+
+    const options = {
+      method: 'GET', 
+      url: 'http://localhost:5001/teams',
+      params: 
+        { league: 'standard', 
+          season: season
         }
-    })
-    .then(res => res.json())
-    .then(data => {
-        const updatedTeams = data.response.map((team: any) => {
+    }
+
+    axios.request(options).then((response)=>{
+      const updatedTeams = response.data.map((team: any) => {
         const new_id = `${team.team.id}-${team.season}`
         delete team.team.id
         return {
@@ -50,8 +53,11 @@ export default function App() {
         });
         setTeams(updatedTeams);
         setLoading(false)
-  })
-    .catch(err => window.alert("Could not load data. Refresh and try again"));
+    })
+
+    .catch(err => {
+      window.alert(`Could not load data. Refresh and try again ${err}`)
+    });
   }, [season]);
 
   /** effect to manage local storage */
