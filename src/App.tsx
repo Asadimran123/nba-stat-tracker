@@ -1,5 +1,6 @@
 import './App.css'
 import Navbar from './components/Navbar'
+// @ts-ignore
 import React, { useEffect, useState } from 'react';
 import  {Route, Routes} from "react-router-dom"
 import Home from './assets/pages/Home';
