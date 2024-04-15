@@ -4,7 +4,7 @@ import {Link, Route, Routes} from "react-router-dom"
 export default function Navbar(){
     return (
         <nav id="nav">
-            <img id="nba-logo" src="src/assets/logo.png" alt="nba-logo" />
+            <img id="nba-logo" src="src/assets/134-1349206_nba-logo-png-transparent-background-nba-logo-transparent-background 2.jpg" alt="nba-logo" />
             <h2 id="nav-header">NBA stat tracker</h2>
             <Link to="/" className="nav-btn" >Home</Link>
             <Link to="/Teams" className="nav-btn" >Teams</Link>

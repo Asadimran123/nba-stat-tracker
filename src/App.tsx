@@ -34,7 +34,7 @@ export default function App() {
 
     const options = {
       method: 'GET', 
-      url: 'http://localhost:5001/teams',
+      url: 'https://6ug3gklzbc.execute-api.us-west-1.amazonaws.com/prod/teams',
       params: 
         { league: 'standard', 
           season: season

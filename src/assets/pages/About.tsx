@@ -17,7 +17,8 @@ export default function AboutPage(){
                 <p className="about-p">
                     You can find my GitHub repository below
                 </p>
-                <a href="">GitHub Repo</a>
+                <a href="https://github.com/Asadimran123/nba-stat-tracker" target="_blank" rel="noopener noreferrer"> Client GitHub Repo</a>
+                <a href="https://github.com/Asadimran123/nba-stat-server" target="_blank" rel="noopener noreferrer"> Server GitHub Repo</a>
                 <p className="about-p">
                     Happy Tracking!
                 </p>
