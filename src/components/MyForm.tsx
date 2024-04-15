@@ -6,6 +6,7 @@ export default function MyForm() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
+  // @ts-ignore
   const [error, setError] = useState('')
 
   function onSubmit(e: any){
