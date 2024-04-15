@@ -7,6 +7,7 @@ import TeamsPage from './assets/pages/Teams';
 import MyTeamsPage from './assets/pages/MyTeams';
 import AboutPage from './assets/pages/About';
 import Contact from './assets/pages/Contact';
+import PlayersPage from './assets/pages/Players';
 import axios from 'axios';
 
 export default function App() {
@@ -34,7 +35,7 @@ export default function App() {
 
     const options = {
       method: 'GET', 
-      url: 'http://localhost:5001/teams',
+      url: 'https://6ug3gklzbc.execute-api.us-west-1.amazonaws.com/prod/teams',
       params: 
         { league: 'standard', 
           season: season
@@ -42,6 +43,7 @@ export default function App() {
     }
 
     axios.request(options).then((response)=>{
+      console.log(response.data)
       const updatedTeams = response.data.map((team: any) => {
         const new_id = `${team.team.id}-${team.season}`
         delete team.team.id
@@ -55,8 +57,9 @@ export default function App() {
         setLoading(false)
     })
 
-    .catch(err => {
+    .catch((err : any) => {
       window.alert(`Could not load data. Refresh and try again ${err}`)
+      console.log(err)
     });
   }, [season]);
 
@@ -153,6 +156,7 @@ export default function App() {
       <Route path="/MyTeams" element={<MyTeamsPage {...favTeamProps}/>}/>
       <Route path="/About" element={<AboutPage/>}/>
       <Route path="/Contact" element={<Contact/>}/>
+      <Route path="/Players" element={<PlayersPage />}/>
     </Routes>
     </main>
   )
