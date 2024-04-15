@@ -1,4 +1,6 @@
+// @ts-ignore
 import React from "react";
+// @ts-ignore
 import {Link, Route, Routes} from "react-router-dom"
 
 export default function Navbar(){
