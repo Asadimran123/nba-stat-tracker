@@ -1,42 +1,297 @@
-#root {
-  max-width: 1280px;
+.team-page{
+  color: black;
+}
+
+.loading-p{
+  color: black;
+
+}
+a{
+  color: blue;
+}
+
+.my-teams-header{
+  display: flex;
+  color: black;
+  font-family: 'espn';
+}
+
+.about-p{
+  color: black;
+}
+
+.home{
+  display: flex;
+  align-items: center; 
+  flex-direction: column;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+  margin-left: 300px;
+  margin-right: 300px;
+  justify-self: center;
+  align-self: center;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-header{
+  color: black;
+  margin-bottom: 5px;
+}
+
+.home-p{
+  color: black;
+  margin: 5px;
+}
+
+
+#nav {
+  display: flex; /* Use flexbox to arrange items horizontally */
+  align-items: center; /* Align items vertically in the center */
+  background-color: white; /* Set the background color to red */
+  padding: 10px; /* Add some padding for spacing */
+  height: fit-content;
+  border-radius: 5px;
+  height: 150px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+@font-face {
+  font-family: 'espn';
+  src: url('src/assets/esp/esp_bdit.ttf') format('truetype');
+}
+
+@keyframes moveFromRightToLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+#nav-header {
+  font-family: 'espn';
+  font-size: 60px;
+  justify-self: center;
+  align-self: center;
+  margin: auto;
+  color: black;
+  animation: moveFromRightToLeft 2s ease forwards;
+}
+
+#nba-logo{
+  height: 150px;
+  margin-right: 10px;
+}
+
+.nav-btn{
+  justify-self: flex-end;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin-top: auto;
+  border: none;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  margin-left: 7px;
+  height: 40px;
+  width: 100px;
+  text-decoration: none;
+}
+
+.nav-btn:hover{
+  background-color: lightblue;
+}
+
+.nav-btn:active{
+  background-color: yellow;
+}
+
+
+#container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Automatically fill the grid with a minimum width of 250px and adjust the number of columns based on available space */
+  gap: 20px; 
+  padding: 20px; 
+  justify-self: center;
+  align-self: center;
+  background-color: white;
+  height: fit-content;
+  border-radius: 5px;
+  animation: fadeIn 2s ease forwards;
+  place-items: center;
+}
+
+#menu-select{
+  position: relative;
+  margin-left: 45%;
+  margin-top: 40px;
+  height: 50px;
+}
+
+#menu-select-season{
+  background-color: whitesmoke;
+  color: black;
+}
+
+.card{
+  height: 320px;
+  width: 225px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px){
+  .card:hover{
+    background-color: lightblue;
+  } 
+}
+
+/*&#9825;*/
+.favorite-btn{
+  width: 30px;
+  height: 30px;
+  bottom: 10px;
+  left: 0;
+  position: relative;
+  background-color: transparent;
+  color: red;
+  font-size: 25px;
+  border: none;
+}
+
+.favorite-btn-icon:hover{
+  color: red;
+}
+
+
+.card-logo{
+  height: 140px;
+  align-self: center;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.team-stats-div{
+  display: flex;
+  flex-direction: column;
+}
+
+.team-stats-info{
+  margin: 3px;
+  align-self: center;
+  color: black;
+  font-size: 17.5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#select{
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.select-btns{
+  margin: 10px;
+  height: 50px;
+
+}
+
+
+
+.contact-form {
+  max-width: 500px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 2s ease forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formcarry-block {
+  margin-bottom: 20px;
+}
+
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: black;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 450px;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  color: black;
+}
+
+textarea {
+  height: 150px;
+}
+
+button[type="submit"] {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.home-content {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.home-header {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.home-p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
