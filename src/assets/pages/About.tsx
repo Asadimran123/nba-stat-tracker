@@ -10,13 +10,13 @@ export default function AboutPage(){
                     Hi! Thank you for visiting my NBA stat tracker. 
                 </h3>
                 <p className="about-p">
-                    This is a little project I through together to learn the basics of ReactJS. 
+                    This is a little project I through together to learn the basics of web application development. 
                 </p>
                 <p className="about-p">
                     If you spot any bugs, issues, or if you have any reccomendations for updates or future features, please feel free to contact me!
                 </p>
                 <p className="about-p">
-                    You can find my GitHub repository below
+                    You can find my GitHub repositories for the client app and server below
                 </p>
                 <a href="https://github.com/Asadimran123/nba-stat-tracker" target="_blank" rel="noopener noreferrer"> Client GitHub Repo</a>
                 <a href="https://github.com/Asadimran123/nba-stat-server" target="_blank" rel="noopener noreferrer"> Server GitHub Repo</a>
