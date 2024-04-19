@@ -1,3 +1,4 @@
+// @ts-ignore
 import React, { useState } from 'react';
 
 export default function MyForm() {
@@ -5,6 +6,7 @@ export default function MyForm() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
+  // @ts-ignore
   const [error, setError] = useState('')
 
   function onSubmit(e: any){

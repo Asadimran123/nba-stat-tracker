@@ -91,8 +91,8 @@ a{
 }
 
 #nba-logo{
-  height: 60px;
-  margin-right: auto;
+  height: 150px;
+  margin-right: 10px;
 }
 
 .nav-btn{
@@ -108,6 +108,7 @@ a{
   margin-left: 7px;
   height: 40px;
   width: 100px;
+  text-decoration: none;
 }
 
 .nav-btn:hover{
@@ -157,8 +158,10 @@ a{
   box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover{
-  background-color: lightblue;
+@media (min-width: 768px){
+  .card:hover{
+    background-color: lightblue;
+  } 
 }
 
 /*&#9825;*/
@@ -300,4 +303,26 @@ button[type="submit"]:hover {
   font-size: 1.5rem;
   width: 100%;
   margin-left: 10px;
+}
+
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.home-content {
+  text-align: center;
+}
+
+.home-header {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.home-p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
