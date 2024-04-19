@@ -7,7 +7,7 @@ export default function Navbar(){
     return (
         <nav id="nav">
             <img id="nba-logo" src="src/assets/134-1349206_nba-logo-png-transparent-background-nba-logo-transparent-background 2.jpg" alt="nba-logo" />
-            <h2 id="nav-header">NBA stat tracker</h2>
+            <h1 id="nav-header">NBA stat tracker</h1>
             <Link to="/" className="nav-btn" >Home</Link>
             <Link to="/Teams" className="nav-btn" >Teams</Link>
             <Link to="/Players" className="nav-btn" >Players</Link>

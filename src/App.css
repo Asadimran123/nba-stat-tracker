@@ -26,11 +26,12 @@ a{
   flex-direction: column;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
   margin-top: 40px;
-  margin-left: 300px;
-  margin-right: 300px;
+  /* margin-left: 300px;
+  margin-right: 300px; */
   justify-self: center;
   align-self: center;
   animation: fadeIn 2s ease forwards;
+  min-width: 500px;
 }
 
 @keyframes fadeIn {
@@ -62,8 +63,9 @@ a{
   padding: 10px; /* Add some padding for spacing */
   height: fit-content;
   border-radius: 5px;
-  height: 150px;
+  height: auto;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  min-width: 1000px;
 }
 
 @font-face {
@@ -88,6 +90,7 @@ a{
   margin: auto;
   color: black;
   animation: moveFromRightToLeft 2s ease forwards;
+  min-width: 750px
 }
 
 #nba-logo{
@@ -108,12 +111,17 @@ a{
   margin-left: 7px;
   height: 40px;
   width: 100px;
+  min-width: 60px;
   text-decoration: none;
 }
 
-.nav-btn:hover{
-  background-color: lightblue;
+@media (min-width: 601px){
+  .nav-btn:hover{
+    background-color: lightblue;
+  }
 }
+
+
 
 .nav-btn:active{
   background-color: yellow;
@@ -217,7 +225,7 @@ a{
 
 
 .contact-form {
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 8px;
@@ -245,7 +253,7 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
-  width: 450px;
+  width: 300px;
   padding: 12px;
   border: 1px solid #ced4da;
   border-radius: 5px;
@@ -305,7 +313,6 @@ button[type="submit"]:hover {
   margin-left: 10px;
 }
 
-
 .home-container {
   display: flex;
   justify-content: center;
@@ -313,9 +320,6 @@ button[type="submit"]:hover {
   height: 100vh;
 }
 
-.home-content {
-  text-align: center;
-}
 
 .home-header {
   font-size: 2.5rem;
@@ -325,4 +329,63 @@ button[type="submit"]:hover {
 .home-p {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+}
+
+
+
+
+
+
+@media (max-width: 1200px) {
+  .home {
+    min-width: auto; /* Limiting maximum width for better readability */
+  }
+
+  #nav {
+    display: flex;
+    flex-direction: column; /* Change flex direction to column for mobile view */
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    min-width: auto;
+  }
+  
+  #nav-header {
+    font-family: 'espn';
+    font-size: 25px; /* Decrease font size for better mobile view */
+    color: black;
+    margin: 10px 0; /* Adjust margin for better spacing */
+    animation: moveFromRightToLeft 2s ease forwards;
+    text-align: center;
+  }
+  
+  #nba-logo {
+    height: 80px; /* Decrease logo size for better mobile view */
+    margin-bottom: 10px; /* Add margin for better spacing */
+  }
+  
+  .nav-btn {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin: 5px;
+    border: none;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    height: 40px;
+    width: 100%; /* Make buttons full width for mobile view */
+    text-decoration: none;
+    border-radius: 5px; /* Add border-radius for button corners */
+  }
+
+  
+
+  .contact-form{
+    min-width: auto;
+  }
+
 }

@@ -48,7 +48,7 @@ export default function MyForm() {
     
             <div className="formcarry-block">
             <label htmlFor="name">Full Name</label>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} id="name" placeholder="Your first and last name" />
+            <input type="text" value={name} onChange={(e) => setName(e.target.value)} id="name" placeholder="John Doe" />
             </div>
             
             <div className="formcarry-block">
