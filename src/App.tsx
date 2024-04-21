@@ -148,6 +148,13 @@ export default function App() {
     toggleSeason : toggleSeason
   }
 
+  const playerTeamProps = {
+    seasonList : seasonListOptions,
+    toggleSeason : toggleSeason, 
+    season: season,
+  }
+
+
   return(
     <main>
       <Navbar/>
@@ -157,7 +164,7 @@ export default function App() {
       <Route path="/MyTeams" element={<MyTeamsPage {...favTeamProps}/>}/>
       <Route path="/About" element={<AboutPage/>}/>
       <Route path="/Contact" element={<Contact/>}/>
-      <Route path="/Players" element={<PlayersPage />}/>
+      <Route path="/Players" element={<PlayersPage {...playerTeamProps}/>}/>
     </Routes>
     </main>
   )

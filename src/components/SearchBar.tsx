@@ -1,29 +1,38 @@
 import React from "react";
 import axios from 'axios';
 
-export default function SearchBar(){
-    const [player, setPlayer] = React.useState("")
+export default function SearchBar(props: any){
+    const [player, setPlayer] = React.useState("");
 
-    React.useEffect(() => {
-        const options = {
-        method: 'GET', 
-        url: 'http://localhost:5001/players',
-        params: 
-            { league: 'standard', 
-            player: player
-            }
+    const fetchPlayers = async(player: any)=>{
+        try{
+            const options = {
+                method: 'GET', 
+                url: 'http://localhost:5001/playerSearch',
+                params: 
+                    { 
+                        search: player
+                    }
+                }
+        
+                const response = await axios.request(options);
+                props.setPlayerSearchResults(response.data);
         }
+        catch(err){
+            window.alert(`Could not load data. Refresh and try again ${err}`);
+            console.log(err);
+        }
+    }
 
-        axios.request(options).then((response)=>{
-        console.log(response.data)
-        })
+    const handleChange = (val: any) =>{
+        setPlayer(val);
+        fetchPlayers(val);
+    }
 
-        .catch((err : any) => {
-        window.alert(`Could not load data. Refresh and try again ${err}`)
-        console.log(err)
-        });
+    React.useEffect( () => {
+       fetchPlayers(player);
     }, [player]);
-    
+
     return(
         <div className="input-wrapper">
             <input 
@@ -31,7 +40,7 @@ export default function SearchBar(){
                 placeholder="Search Players By Last Name" 
                 id="player-search-input" 
                 value={player} 
-                onChange={(e)=> setPlayer(e.target.value)}
+                onChange={(e)=> handleChange(e.target.value)}
             />
         </div>
     )

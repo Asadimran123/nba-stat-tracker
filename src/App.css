@@ -347,6 +347,29 @@ button[type="submit"]:hover {
   margin-bottom: 0.5rem;
 }
 
+.results-list{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 8px #ddd;
+  border-radius: 10px;
+  margin-top: 1rem;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.player-button{
+  padding: 10px 20px;
+  color: black;
+  background-color: white;
+  border: none;
+  box-shadow: 0px 0px 8px #ddd;
+}
+
+.player-button:active{
+  background-color: lightblue;
+}
 
 
 @media (max-width: 1200px) {
