@@ -1,6 +1,6 @@
 // @ts-ignore
 export default function SearchResults(props: any) {
-    const selectPlayer = (playerId: string) => {
+    const selectPlayer = (playerId: number) => {
         props.setPlayer(playerId)
         props.setPlayerSearchResults([])
     };
@@ -17,7 +17,7 @@ export default function SearchResults(props: any) {
         );
     });
 
-    console.log(results);
+   
 
     return (
         <div className="results-list">

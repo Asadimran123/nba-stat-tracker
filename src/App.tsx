@@ -44,7 +44,6 @@ export default function App() {
     }
 
     axios.request(options).then((response)=>{
-      console.log(response.data)
       const updatedTeams = response.data.map((team: any) => {
         const new_id = `${team.team.id}-${team.season}`
         delete team.team.id
@@ -59,8 +58,7 @@ export default function App() {
     })
 
     .catch((err : any) => {
-      window.alert(`Could not load data. Refresh and try again ${err}`)
-      console.log(err)
+      window.alert(`Could not load team data. Refresh and try again ${err}`)
     });
   }, [season]);
 

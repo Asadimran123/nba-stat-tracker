@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBar from "../../components/SearchBar";
 import SearchResults from "../../components/SearchResults";
+import axios from "axios";
 export default function PlayersPage(props: any){
 
     const [playerSearchResults, setPlayerSearchResults] = React.useState<any[]>([])
-    const [playerID, setPlayerID] = React.useState<any>({})
+    const [playerID, setPlayerID] = React.useState<any>()
+    const [playerData, setPlayerData] = React.useState<any>([])
 
+
+    const fetchPlayerData = async(playerID: any) =>{
+        try{
+            console.log("getting")
+            const options = {
+                method: 'GET', 
+                url: 'http://localhost:5001/playerStats',
+                params: 
+                    { 
+                        id: playerID, 
+                        season: props.season
+                    }
+                }
+        
+                const response = await axios.request(options);
+                setPlayerData(response.data);
+        }
+        catch(err){
+            window.alert(`Could not load player data. Refresh and try again ${err}`);
+            console.log(err);
+        }
+    }
+
+    useEffect(()=>{
+        fetchPlayerData(playerID)
+    }, [playerID, props.season])
 
     console.log(playerID)
+    console.log(playerData)
     return(
         <div className="players-container">
             <h1 className="my-teams-header">Players</h1>

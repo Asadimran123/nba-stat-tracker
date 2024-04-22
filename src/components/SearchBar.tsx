@@ -19,14 +19,14 @@ export default function SearchBar(props: any){
                 props.setPlayerSearchResults(response.data);
         }
         catch(err){
-            window.alert(`Could not load data. Refresh and try again ${err}`);
+            window.alert(`Could not load player data. Refresh and try again ${err}`);
             console.log(err);
         }
     }
 
     const handleChange = (val: any) =>{
         setPlayer(val);
-        fetchPlayers(val);
+        // fetchPlayers(val);
     }
 
     React.useEffect( () => {
