@@ -1,8 +1,11 @@
 import React from "react";
 import axios from 'axios';
+import { useDebounce } from 'use-debounce';
 
 export default function SearchBar(props: any){
     const [player, setPlayer] = React.useState("");
+    const [debouncedPlayer] = useDebounce(player, 750); // 750 milliseconds debounce delay
+
 
     const fetchPlayers = async(player: any)=>{
         try{
@@ -30,8 +33,8 @@ export default function SearchBar(props: any){
     }
 
     React.useEffect( () => {
-       fetchPlayers(player);
-    }, [player]);
+       fetchPlayers(debouncedPlayer);
+    }, [debouncedPlayer]);
 
     return(
         <div className="input-wrapper">
