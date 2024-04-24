@@ -26,6 +26,8 @@ a{
 
 .about-p{
   color: black;
+  margin: 7px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .home{
@@ -34,8 +36,7 @@ a{
   flex-direction: column;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
   margin-top: 40px;
-  /* margin-left: 300px;
-  margin-right: 300px; */
+  margin-bottom: 15px;
   justify-self: center;
   align-self: center;
   animation: fadeIn 2s ease forwards;
@@ -57,12 +58,16 @@ a{
 
 .home-header{
   color: black;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 3px;
 }
 
 .home-p{
   color: black;
-  margin: 5px;
+  margin: 10px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
 
 
@@ -82,7 +87,7 @@ a{
 
 @font-face {
   font-family: 'espn';
-  src: url('src/assets/esp/esp_bdit.ttf') format('truetype');
+  src: url('assets/esp/esp_ital.ttf') format('truetype');
 }
 
 @keyframes moveFromRightToLeft {
@@ -111,6 +116,7 @@ a{
 }
 
 .nav-btn{
+  font-family: 'espn';
   justify-self: flex-end;
   background-color: white;
   display: flex;
@@ -184,7 +190,6 @@ a{
   } 
 }
 
-/*&#9825;*/
 .favorite-btn{
   width: 30px;
   height: 30px;
@@ -197,10 +202,10 @@ a{
   border: none;
 }
 
-.favorite-btn-icon:hover{
-  color: red;
+.heart-icon{
+  height: 30px;
+  width: 30px;
 }
-
 
 .card-logo{
   height: 140px;
@@ -260,6 +265,8 @@ label {
   margin-bottom: 5px;
   display: block;
   color: black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
 
 input[type="text"],
@@ -402,7 +409,7 @@ button[type="submit"]:hover {
   }
   
   #nav-header {
-    font-family: 'espn';
+    /* font-family: 'espn'; */
     font-size: 25px; /* Decrease font size for better mobile view */
     color: black;
     margin: 10px 0; /* Adjust margin for better spacing */
