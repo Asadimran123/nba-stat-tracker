@@ -1,5 +1,9 @@
 // @ts-ignore
 import React from "react"
+
+import clear_heart from "../assets/clear_heart.svg"
+import colored_heart from "../assets/colored heart.svg"
+
 type CardProps = {
     name: string
     key: number
@@ -14,9 +18,11 @@ type CardProps = {
 }
 
 const heart_style = {
-    fontSize: '40px'
+    fontSize: '2px'
 }
 
+//&#9829;
+//&#9825;
 export default function Card(props: CardProps){
     return (
         <div className="card">
@@ -29,8 +35,12 @@ export default function Card(props: CardProps){
                 <h4 className="team-stats-info">{props.season}</h4>
                 <button className="favorite-btn" onClick={props.addFavorite}>
                     {props.isFavorite 
-                    ? <span className="favorite-btn-icon" style={heart_style}>&#9829;</span>
-                    : <span className="favorite-btn-icon">&#9825;</span>
+                    ? <span className="favorite-btn-icon" style={heart_style}>
+                        <img src={colored_heart} className="heart-icon"/>
+                        </span>
+                    : <span className="favorite-btn-icon">
+                        <img src={clear_heart} className="heart-icon"/>
+                        </span>
                 }
                     </button>
             </div>

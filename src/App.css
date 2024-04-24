@@ -190,7 +190,6 @@ a{
   } 
 }
 
-/*&#9825;*/
 .favorite-btn{
   width: 30px;
   height: 30px;
@@ -203,10 +202,10 @@ a{
   border: none;
 }
 
-.favorite-btn-icon:hover{
-  color: red;
+.heart-icon{
+  height: 30px;
+  width: 30px;
 }
-
 
 .card-logo{
   height: 140px;
