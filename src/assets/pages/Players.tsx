@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import SearchBar from "../../components/SearchBar";
 import SearchResults from "../../components/SearchResults";
 import axios from "axios";
+import PlayerDataResults from "../../components/PlayerDataResults";
 export default function PlayersPage(props: any){
 
     const [playerSearchResults, setPlayerSearchResults] = React.useState<any[]>([])
-    const [playerID, setPlayerID] = React.useState<any>()
+    const [playerID, setPlayerID] = React.useState<number>()
     const [playerData, setPlayerData] = React.useState<any>([])
 
 
@@ -14,7 +15,7 @@ export default function PlayersPage(props: any){
             console.log("getting")
             const options = {
                 method: 'GET', 
-                url: 'http://localhost:5001/playerStats',
+                url: 'https://6ug3gklzbc.execute-api.us-west-1.amazonaws.com/prod/playerStats',
                 params: 
                     { 
                         id: playerID, 
@@ -36,7 +37,7 @@ export default function PlayersPage(props: any){
     }, [playerID, props.season])
 
     console.log(playerID)
-    console.log(playerData)
+
     return(
         <div className="players-container">
             <h1 className="my-teams-header">Players</h1>
@@ -49,6 +50,10 @@ export default function PlayersPage(props: any){
                 searchResults={playerSearchResults}
                 setPlayer={setPlayerID}
                 setPlayerSearchResults={setPlayerSearchResults}
+                />
+                <PlayerDataResults 
+                playerData = {playerData}
+                playerID = {playerID}
                 />
             </div>
         </div>

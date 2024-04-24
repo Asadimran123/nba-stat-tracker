@@ -372,6 +372,16 @@ button[type="submit"]:hover {
   background-color: lightblue;
 }
 
+.player-data-div{
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-line{
+  border: solid 1px black;
+  margin: 3px;
+  padding: 3px;
+}
 
 @media (max-width: 1200px) {
 

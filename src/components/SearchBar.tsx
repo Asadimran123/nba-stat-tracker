@@ -4,14 +4,14 @@ import { useDebounce } from 'use-debounce';
 
 export default function SearchBar(props: any){
     const [player, setPlayer] = React.useState("");
-    const [debouncedPlayer] = useDebounce(player, 750); // 750 milliseconds debounce delay
+    const [debouncedPlayer] = useDebounce(player, 500); 
 
 
     const fetchPlayers = async(player: any)=>{
         try{
             const options = {
                 method: 'GET', 
-                url: 'http://localhost:5001/playerSearch',
+                url: 'https://6ug3gklzbc.execute-api.us-west-1.amazonaws.com/prod/playerSearch',
                 params: 
                     { 
                         search: player
