@@ -10,7 +10,7 @@ export default function AboutPage(){
                     Hi! Thank you for visiting my NBA stat tracker. 
                 </h3>
                 <p className="about-p">
-                    This is a little project I through together to learn the basics of web application development. 
+                    This is a little project I threw together to learn the basics of web application development. 
                 </p>
                 <p className="about-p">
                     If you spot any bugs, issues, or if you have any reccomendations for updates or future features, please feel free to contact me!
