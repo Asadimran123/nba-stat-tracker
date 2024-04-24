@@ -8,6 +8,7 @@ import TeamsPage from './assets/pages/Teams';
 import MyTeamsPage from './assets/pages/MyTeams';
 import AboutPage from './assets/pages/About';
 import Contact from './assets/pages/Contact';
+import PlayersPage from './assets/pages/Players';
 import axios from 'axios';
 
 export default function App() {
@@ -56,8 +57,8 @@ export default function App() {
         setLoading(false)
     })
 
-    .catch(err => {
-      window.alert(`Could not load data. Refresh and try again ${err}`)
+    .catch((err : any) => {
+      window.alert(`Could not load team data. Refresh and try again ${err}`)
     });
   }, [season]);
 
@@ -145,6 +146,13 @@ export default function App() {
     toggleSeason : toggleSeason
   }
 
+  const playerTeamProps = {
+    seasonList : seasonListOptions,
+    toggleSeason : toggleSeason, 
+    season: season,
+  }
+
+
   return(
     <main>
       <Navbar/>
@@ -154,6 +162,7 @@ export default function App() {
       <Route path="/MyTeams" element={<MyTeamsPage {...favTeamProps}/>}/>
       <Route path="/About" element={<AboutPage/>}/>
       <Route path="/Contact" element={<Contact/>}/>
+      <Route path="/Players" element={<PlayersPage {...playerTeamProps}/>}/>
     </Routes>
     </main>
   )
