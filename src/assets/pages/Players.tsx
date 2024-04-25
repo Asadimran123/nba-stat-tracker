@@ -8,6 +8,7 @@ export default function PlayersPage(props: any){
     const [playerSearchResults, setPlayerSearchResults] = React.useState<any[]>([])
     const [playerID, setPlayerID] = React.useState<number>()
     const [playerData, setPlayerData] = React.useState<any>([])
+    const [statType, setStatType] = React.useState("averages")
 
 
     const fetchPlayerData = async(playerID: any) =>{
@@ -32,19 +33,29 @@ export default function PlayersPage(props: any){
         }
     }
 
+    const handleStatChange = (e: any) =>{
+        setStatType(e.target.value);
+    }
+
     useEffect(()=>{
         fetchPlayerData(playerID)
     }, [playerID, props.season])
 
-    console.log(playerID)
 
     return(
         <div className="players-container">
             <h1 className="my-teams-header">Players</h1>
             <div className="search-container">
-            <select id="menu-select-season" className='select-btns' onChange={props.toggleSeason} value={props.season}>
-              {props.seasonList}
-            </select>
+            <span>
+                <select id="menu-select-season" className='select-btns' onChange={props.toggleSeason} value={props.season}>
+                {props.seasonList}
+                </select>
+
+                <select id="menu-select-stats" className='select-btns' onChange={handleStatChange} value={statType}>
+                <option value="averages">Player Averages</option>
+                <option value="totals">Player Totals</option>
+                </select>
+            </span>
                 <SearchBar setPlayerSearchResults={setPlayerSearchResults}/>
                 <SearchResults 
                 searchResults={playerSearchResults}
@@ -54,6 +65,7 @@ export default function PlayersPage(props: any){
                 <PlayerDataResults 
                 playerData = {playerData}
                 playerID = {playerID}
+                statType = {statType}
                 />
             </div>
         </div>
