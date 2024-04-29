@@ -23,6 +23,7 @@ export default function AboutPage(){
                 </p>
                 <h3 className="about-p">Future Plans</h3>
                 <p className="about-p">Favorite Players</p>
+                <p className="about-p">Favorite Team Filters</p>
                 <p className="about-p">Live Game Scores</p>
                 <p className="about-p">Detailed team data</p>
                 <a href="https://github.com/Asadimran123/nba-stat-tracker" target="_blank" rel="noopener noreferrer"> Client GitHub Repo</a>
