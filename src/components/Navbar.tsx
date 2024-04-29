@@ -18,7 +18,7 @@ export default function Navbar() {
             <img id="nba-logo" src={Logo} alt="nba-logo" />
             <h1 id="nav-header">NBA stat tracker</h1>
             <button className="menu-btn" onClick={toggleMenu}>
-                Toggle Menu
+                {showMenu ? "Hide Menu" : "Show Menu"}
             </button>
             <div className={`nav-links ${showMenu ? 'show' : ''}`}>
                 <Link to="/" className="nav-btn" onClick={toggleMenu}>

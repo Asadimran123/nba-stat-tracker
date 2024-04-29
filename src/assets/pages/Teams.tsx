@@ -41,9 +41,10 @@ const container_styles = {
     display: props.loading ? 'flex' : 'grid', 
     justifyContent: props.loading ? 'center' : ''
 }
+
         
 return(
-    <main>
+    <div >
         <h1 className="my-teams-header">Teams</h1>
         <div id="select">
             {<button onClick={props.toggleConference} value='west' className='select-btns'>West </button>}
@@ -63,7 +64,7 @@ return(
             )}
         </div>
 
-    </main>
+    </div>
 )
 
 }

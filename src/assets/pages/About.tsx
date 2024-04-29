@@ -3,7 +3,7 @@ import React from "react"
 
 export default function AboutPage(){
     return(
-        <div className="about-container">
+        <div className="home">
             <h1 className="my-teams-header">About</h1>
             <div className="home">
                 <h3 className="about-p">
@@ -18,11 +18,15 @@ export default function AboutPage(){
                 <p className="about-p">
                     You can find my GitHub repositories for the client app and server below
                 </p>
-                <a href="https://github.com/Asadimran123/nba-stat-tracker" target="_blank" rel="noopener noreferrer"> Client GitHub Repo</a>
-                <a href="https://github.com/Asadimran123/nba-stat-server" target="_blank" rel="noopener noreferrer"> Server GitHub Repo</a>
                 <p className="about-p">
                     Happy Tracking!
                 </p>
+                <h3 className="about-p">Future Plans</h3>
+                <p className="about-p">Favorite Players</p>
+                <p className="about-p">Live Game Scores</p>
+                <p className="about-p">Detailed team data</p>
+                <a href="https://github.com/Asadimran123/nba-stat-tracker" target="_blank" rel="noopener noreferrer"> Client GitHub Repo</a>
+                <a href="https://github.com/Asadimran123/nba-stat-server" target="_blank" rel="noopener noreferrer"> Server GitHub Repo</a>
             </div>
         </div>
     )
