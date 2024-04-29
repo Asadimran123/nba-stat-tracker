@@ -23,22 +23,22 @@ Server repo: https://github.com/Asadimran123/nba-stat-server
 
 
 ## Dependancies
-"@uidotdev/usehooks": "^2.4.1",
-"autoprefixer": "^10.4.18",
-"axios": "^1.6.8",
-"flowbite-react": "^0.7.2",
-"localforage": "^1.10.0",
-"lodash.template": "^4.5.0",
-"match-sorter": "^6.3.4",
-"nanoid": "^5.0.6",
-"postcss": "^8.4.35",
-"react": "^18.2.0",
-"react-dom": "^18.2.0",
-"react-icons": "^5.0.1",
-"react-router-dom": "^6.22.2",
-"sort-by": "^0.0.2",
-"tailwindcss": "^3.4.1",
-"use-debounce": "^10.0.0"
+- "@uidotdev/usehooks": "^2.4.1",
+- "autoprefixer": "^10.4.18",
+- "axios": "^1.6.8",
+- "flowbite-react": "^0.7.2",
+- "localforage": "^1.10.0",
+- "lodash.template": "^4.5.0",
+- "match-sorter": "^6.3.4",
+- "nanoid": "^5.0.6",
+- "postcss": "^8.4.35",
+- "react": "^18.2.0",
+- "react-dom": "^18.2.0",
+- "react-icons": "^5.0.1",
+- "react-router-dom": "^6.22.2",
+- "sort-by": "^0.0.2",
+- "tailwindcss": "^3.4.1",
+- "use-debounce": "^10.0.0"
 
 ## component docs
 
